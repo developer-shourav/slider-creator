@@ -109,6 +109,7 @@ const changeSlide = (index) => {
   items[index].style.display = "block"
 }
 
+// Search image by clicking Button
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
@@ -116,6 +117,18 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
   search.value = '';
+})
+
+// Search image by Pressing Enter button in search field
+document.getElementById('search').addEventListener('keypress', function (e) {
+  if(e.key == "Enter"){
+    document.querySelector('.main').style.display = 'none';
+    clearInterval(timer);
+    const search = document.getElementById('search');
+    getImages(search.value)
+    sliders.length = 0;
+    search.value = '';
+  }
 })
 
 sliderBtn.addEventListener('click', function () {
